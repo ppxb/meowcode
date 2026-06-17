@@ -21,7 +21,15 @@ export type ContentBlockID = Schema.Schema.Type<typeof ContentBlockID>
 export const ToolCallID = Schema.String
 export type ToolCallID = Schema.Schema.Type<typeof ToolCallID>
 
-export const ReasoningEfforts = ["none", "minimal", "low", "medium", "high", "xhigh", "max"] as const
+export const ReasoningEfforts = [
+  "none",
+  "minimal",
+  "low",
+  "medium",
+  "high",
+  "xhigh",
+  "max"
+] as const
 export const ReasoningEffort = Schema.Literals(ReasoningEfforts)
 export type ReasoningEffort = Schema.Schema.Type<typeof ReasoningEffort>
 
@@ -31,11 +39,21 @@ export type TextVerbosity = Schema.Schema.Type<typeof TextVerbosity>
 export const MessageRole = Schema.Literals(["system", "user", "assistant", "tool"])
 export type MessageRole = Schema.Schema.Type<typeof MessageRole>
 
-export const FinishReason = Schema.Literals(["stop", "length", "tool-calls", "content-filter", "error", "unknown"])
+export const FinishReason = Schema.Literals([
+  "stop",
+  "length",
+  "tool-calls",
+  "content-filter",
+  "error",
+  "unknown"
+])
 export type FinishReason = Schema.Schema.Type<typeof FinishReason>
 
 export const JsonSchema = Schema.Record(Schema.String, Schema.Unknown)
 export type JsonSchema = Schema.Schema.Type<typeof JsonSchema>
 
-export const ProviderMetadata = Schema.Record(Schema.String, Schema.Record(Schema.String, Schema.Unknown))
+export const ProviderMetadata = Schema.Record(
+  Schema.String,
+  Schema.Record(Schema.String, Schema.Unknown)
+)
 export type ProviderMetadata = Schema.Schema.Type<typeof ProviderMetadata>
